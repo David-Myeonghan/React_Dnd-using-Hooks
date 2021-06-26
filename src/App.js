@@ -10,18 +10,7 @@ function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<div className="drag-n-drop">
-					{data.map((group, idx) => (
-						<div key={group.title} className="dnd-group">
-							<div className="group-title">{group.title}</div>
-							{group.items.map((item, idx) => (
-								<div key={item} draggable={true} className="dnd-item">
-									{item}
-								</div>
-							))}
-						</div>
-					))}
-				</div>
+				<DragNDrop data={data} />
 			</header>
 		</div>
 	);

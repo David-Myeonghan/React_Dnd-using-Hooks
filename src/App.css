@@ -66,8 +66,12 @@
 .dnd-item:not(:last-of-type) {
 	margin-bottom: 0.5rem;
 }
-)
+
 .dnd-item * {
 	margin: 0;
 	font-size: 1.2rem;
+}
+
+.current {
+	background-color: #282c34;
 }
