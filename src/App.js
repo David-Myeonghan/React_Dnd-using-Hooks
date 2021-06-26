@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import DragNDrop from './components/DragNDrop';
+
+const data = [
+	{ title: 'group 1', items: ['1', '2', '3'] },
+	{ title: 'group 2', items: ['4', '5'] },
+];
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<header className="App-header">
+				<div className="drag-n-drop">
+					{data.map((group, idx) => (
+						<div key={group.title} className="dnd-group">
+							<div className="group-title">{group.title}</div>
+							{group.items.map((item, idx) => (
+								<div key={item} draggable={true} className="dnd-item">
+									{item}
+								</div>
+							))}
+						</div>
+					))}
+				</div>
+			</header>
+		</div>
+	);
 }
 
 export default App;
