@@ -4,6 +4,12 @@ function DragNDrop({ data }) {
 	const [list, setList] = useState(data);
 	const [dragging, setDragging] = useState(false);
 
+	const [listOne, setListOne] = useState([]);
+	const [listTwo, setListTwo] = useState([]);
+
+	console.log(listOne.items);
+	console.log(listTwo.items);
+
 	const dragItem = useRef();
 	// not for ref, just to get container not changed btn re-renders
 	const dragNode = useRef(); // to store the reference of the specific node.
@@ -33,6 +39,9 @@ function DragNDrop({ data }) {
 				);
 				dragItem.current = targetItem;
 				// localStorage.setItem('List', JSON.stringify(newList));
+				console.log(newList);
+				setListOne(newList[0]);
+				setListTwo(newList[1]);
 				return newList;
 			});
 		}
@@ -82,6 +91,7 @@ function DragNDrop({ data }) {
 							{item}
 						</div>
 					))}
+					<div>total: {group.items.length}</div>
 				</div>
 			))}
 		</div>
